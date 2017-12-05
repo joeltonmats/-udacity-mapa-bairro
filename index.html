@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Neightbout's Map</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="options-box">
+            <h1>Find Your New NYC Home</h1>
+            <div>
+                <input id="show-listings" type="button" value="Show Listings">
+                <input id="hide-listings" type="button" value="Hide Listings">
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+
+    <script src="./assets/js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=4&callback=initMap" asyncdefer></script>
+</body>
+
+</html>
