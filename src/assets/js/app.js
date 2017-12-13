@@ -68,6 +68,13 @@ var styles = [
     }
 ];
 
+var locations = [
+    { title: 'France', location: { lat: 46.227638, lng: 2.213749 } },
+    { title: 'Brazil', location: { lat: -14.235004, lng: -51.92528 } },
+    { title: 'Belgium', location: { lat: 50.503887, lng: 4.469936 } },
+    { title: 'Sweden', location: { lat: 60.128161, lng: 18.643501 } },
+    { title: 'United Kingdom', location: { lat: 55.378051, lng: -3.435973 } },
+];
 
 
 
@@ -81,13 +88,7 @@ function initMap() {
     });
 
 
-    var locations = [
-        { title: 'France', location: { lat: 46.227638, lng: 2.213749 } },
-        { title: 'Brazil', location: { lat: -14.235004, lng: -51.92528 } },
-        { title: 'Belgium', location: { lat: 50.503887, lng: 4.469936 } },
-        { title: 'Sweden', location: { lat: 60.128161, lng: 18.643501 } },
-        { title: 'United Kingdom', location: { lat: 55.378051, lng: -3.435973 } },
-    ];
+
 
     //var largeInfowindow = new google.maps.InfoWindow();
     var defaultIcon = makeMarkerIcon('0091ff');
@@ -123,9 +124,6 @@ function initMap() {
             this.setIcon(defaultIcon);
         });
     }
-
-    document.getElementById('show-listings').addEventListener('click', showListings);
-    document.getElementById('hide-listings').addEventListener('click', hideListings);
 }
 
 function populateInfoWindow(marker, infowindow) {
@@ -171,3 +169,45 @@ function makeMarkerIcon(markerColor) {
         new google.maps.Size(21, 34));
     return markerImage;
 }
+
+
+
+
+
+(function () {
+
+    // models
+
+    /* Main view model */
+    var ViewModel = function (locations) {
+
+        this.canCloseSideBar = ko.observable(false);
+        var myLocations = ko.observableArray(locations);
+
+        this.showMarkers = function () {
+            showListings();
+        }.bind(this);
+
+        this.hideMarkers = function () {
+            hideListings();
+        }.bind(this);
+
+        this.toggleSideBar = function () {
+            this.canCloseSideBar(!this.canCloseSideBar());
+        }.bind(this);
+    }
+
+
+    var viewModel = new ViewModel(locations);
+    ko.applyBindings(viewModel);
+
+
+}());
+
+
+
+
+
+
+
+

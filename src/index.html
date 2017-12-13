@@ -5,24 +5,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/mdb/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/mdb/css/mdb.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Neightbout's Map</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="options-box">
-            <h1>Find Your New NYC Home</h1>
-            <div>
-                <input id="show-listings" type="button" value="Show Listings">
-                <input id="hide-listings" type="button" value="Hide Listings">
+    <div class="wrapper">
+
+        <!-- Sidebar Holder -->
+        <nav id="sidebar" data-bind="css: { active: canCloseSideBar()}">
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Criteria Search</p>
+
+                <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
+                <button class="btn btn-xs  btn-danger" data-bind="click:hideMarkers">Hidden</button>
+
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content" class="container-fluid" data-bind="css: { active: canCloseSideBar()}">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-bind="click:toggleSideBar">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                <span>Close Sidebar</span>
+            </button>
+
+
+
+            <h2>Collapsible Sidebar Using Bootstrap 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <div class="line"></div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="map"></div>
+                </div>
             </div>
         </div>
-        <div id="map"></div>
     </div>
 
-
+    <script src="./assets/libs/knockout-3.4.2.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=4&callback=initMap" asyncdefer></script>
 </body>
