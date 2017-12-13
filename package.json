@@ -1,0 +1,24 @@
+{
+  "name": "udacity-mapa-bairro",
+  "version": "1.0.0",
+  "description": "This is a Udacity Project in Advanced Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeltonmats/udacity-mapa-bairro.git"
+  },
+  "author": "Joelton Matos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeltonmats/udacity-mapa-bairro/issues"
+  },
+  "homepage": "https://github.com/joeltonmats/udacity-mapa-bairro#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mdbootstrap": "^4.4.3"
+  }
+}
