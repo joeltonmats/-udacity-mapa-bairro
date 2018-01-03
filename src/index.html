@@ -19,7 +19,10 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar" data-bind="css: { active: canCloseSideBar()}">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <div style="display:inline-flex">
+                    <img src="./assets/img/icon.png" alt="main icon">
+                    <h3 style="margin: auto 0;padding-left:5px">Beard in Barão</h3>
+                </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -126,6 +129,7 @@
     </div>
 
     <script src="./assets/libs/knockout-3.4.2.js"></script>
+    <script src="./assets/js/map-wrapper.js"></script>
     <script src="./assets/js/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=3&callback=initMap"
         async defer></script>
