@@ -1,3 +1,5 @@
+
+$(".button-collapse").sideNav();
 (function () {
 
 
@@ -36,3 +38,4 @@
 
 
 }());
+

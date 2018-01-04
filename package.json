@@ -19,7 +19,6 @@
   "homepage": "https://github.com/joeltonmats/udacity-mapa-bairro#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mdbootstrap": "^4.4.3"
+    "express": "^4.16.2"
   }
 }

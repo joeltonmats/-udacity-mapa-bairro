@@ -5,19 +5,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/libs/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/mdb/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/mdb/css/mdb.min.css">
+    <link rel="stylesheet" href="./assets/libs/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Neightbout's Map</title>
 </head>
 
 <body>
 
-    <div class="wrapper">
+    <header>
+
+        <div class="container">
+            <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only  btn-menu">
+                <i class="medium material-icons">menu</i>
+            </a>
+        </div>
+
+        <ul id="nav-mobile" class="side-nav fixed pink lighten-1" style="transform: translateX(0%);">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <!--  <img src="./assets/img/icon.png" alt="main icon"> -->
+                        <!--  <h3 style="margin: auto 0;padding-left:5px">Beard in ...</h3> -->
+                    </div>
+                    <a href="#!user">
+                        <img src="./assets/img/icon.png" alt="main icon">
+                    </a>
+                    <a href="#!name">
+                        <span class="white-text name">John Doe</span>
+                    </a>
+                    <a href="#!email">
+                        <span class="white-text email">jdandturk@gmail.com</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#!">
+                    <i class="material-icons">cloud</i>First Link With Icon</a>
+            </li>
+            <li>
+                <a href="#!">Second Link</a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="subheader">Subheader</a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#!">Third Link With Waves</a>
+            </li>
+        </ul>
+
+
+    </header>
+
+    <main>
+
+        <div class="map-wrapper">
+            <div id="map"></div>
+        </div>
+
+        <!--    <div class="col s12 m4 l3">
+                    <div class="blue-grey darken-1">
+                        <h1>Casa</h1>
+                        <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
+                        <button class="btn btn-xs  btn-danger" data-bind="click:hideMarkers">Hidden</button>
+
+                        <span class="text"> Draw a shape to search within it for homes!</span>
+                        <input id="toggle-drawing" type="button" value="Drawing Tools" data-bind="click:toggleDrawing">
+
+                        <div>
+                            <input id="zoom-to-area-text" type="text" placeholder="Enter your favorite area!">
+                            <input id="zoom-to-area" type="button" value="Zoom">
+                        </div>
+
+                        <div>
+                            <span class="text"> Within </span>
+                            <select id="max-duration">
+                                <option value="10">10 min</option>
+                                <option value="15">15 min</option>
+                                <option value="30">30 min</option>
+                                <option value="60">1 hour</option>
+                            </select>
+                            <select id="mode">
+                                <option value="DRIVING">drive</option>
+                                <option value="WALKING">walk</option>
+                                <option value="BICYCLING">bike</option>
+                                <option value="TRANSIT">transit ride</option>
+                            </select>
+                            <span class="text">of</span>
+                            <input id="search-within-time-text" type="text" placeholder="Ex: Google Office NYC or 75 9th Ave, New York, NY">
+                            <input id="search-within-time" type="button" value="Go">
+                        </div>
+                      
+                    </div>
+
+                </div> -->
+    </main>
+
+
+    <div>
 
         <!-- Sidebar Holder -->
-        <nav id="sidebar" data-bind="css: { active: canCloseSideBar()}">
+        <!--  <nav id="sidebar" data-bind="css: { active: canCloseSideBar()}">
             <div class="sidebar-header">
                 <div style="display:inline-flex">
                     <img src="./assets/img/icon.png" alt="main icon">
@@ -25,7 +117,7 @@
                 </div>
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components" id="navbarResponsive">
                 <p>Criteria Search</p>
 
                 <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
@@ -96,26 +188,11 @@
                     <a href="#">Contact</a>
                 </li>
             </ul>
-        </nav>
-
-        <!-- Page Content Holder -->
-        <div id="content" class="container-fluid" data-bind="css: { active: canCloseSideBar()}">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-bind="click:toggleSideBar">
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </button>
-
-            <div class="line"></div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="map-wrapper">
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </nav> -->
     </div>
 
+    <script src="./assets/libs/jquery-3.2.1.min.js"></script>
+    <script src="./assets/libs/materialize/js/materialize.min.js"></script>
     <script src="./assets/libs/knockout-3.4.2.js"></script>
     <script src="./assets/js/map-wrapper.js"></script>
     <script src="./assets/js/app.js"></script>

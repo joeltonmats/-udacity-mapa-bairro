@@ -415,13 +415,13 @@ function initMap() {
         });
     }
 
-    document.getElementById('zoom-to-area').addEventListener('click', function () {
+   /*  document.getElementById('zoom-to-area').addEventListener('click', function () {
         zoomToArea();
-    });
+    }); */
 
-    document.getElementById('search-within-time').addEventListener('click', function () {
+   /*  document.getElementById('search-within-time').addEventListener('click', function () {
         searchWithinTime();
-    });
+    }); */
 
 
     // Add an event listener so that the polygon is captured,  call the
