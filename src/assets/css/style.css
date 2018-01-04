@@ -4,6 +4,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    font-size: 12px;
 }
 
 p {
@@ -193,8 +194,19 @@ a.article:hover {
     }
 }
 
+.map-wrapper {
+    position: relative;
+    padding-bottom: 40%;
+    height: 0;
+    overflow: hidden;
+}
+
 #map {
-    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 #pano {
