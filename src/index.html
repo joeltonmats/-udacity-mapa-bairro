@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/libs/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/libs/iziModal/css/iziModal.min.css">
+    <link rel="stylesheet" href="./assets/libs/animate.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Hey, My Barber in Barão</title>
 </head>
@@ -32,7 +34,7 @@
                     <a href="#!user">
                         <img src="./assets/img/icon.png" alt="main icon">
                     </a>
-                    <a href="#!name">
+                    <a href="#!name" id="onlyName">
                         <span class="white-text name">John Doe</span>
                     </a>
                     <a href="#!email">
@@ -56,6 +58,36 @@
             </li>
             <li>
                 <a class="waves-effect" href="#!">Third Link With Waves</a>
+            </li>
+            <li>
+                <!-- Trigger to open Modal -->
+                <a href="#" class="trigger">Modal</a>
+                <!-- Modal structure -->
+                <div id="modal">
+                    <!-- Page content -->
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s3">
+                                    <a href="#test1">Test 1</a>
+                                </li>
+                                <li class="tab col s3">
+                                    <a class="active" href="#test2">Test 2</a>
+                                </li>
+                                <li class="tab col s3 disabled">
+                                    <a href="#test3">Disabled Tab</a>
+                                </li>
+                                <li class="tab col s3">
+                                    <a href="#test4">Test 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="test1" class="col s12">Test 1</div>
+                        <div id="test2" class="col s12">Test 2</div>
+                        <div id="test3" class="col s12">Test 3</div>
+                        <div id="test4" class="col s12">Test 4</div>
+                    </div>
+                </div>
             </li>
         </ul>
     </header>
@@ -192,6 +224,7 @@
 
     <script src="./assets/libs/jquery-3.2.1.min.js"></script>
     <script src="./assets/libs/materialize/js/materialize.min.js"></script>
+    <script src="./assets/libs/iziModal/js/iziModal.min.js"></script>
     <script src="./assets/libs/knockout-3.4.2.js"></script>
     <script src="./assets/js/map-wrapper.js"></script>
     <script src="./assets/js/app.js"></script>
