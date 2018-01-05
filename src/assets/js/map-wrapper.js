@@ -1,10 +1,21 @@
+//TO-DO
+/**
+ * INTEGRATE INSTAGRAM PHOTOS
+ * INTEGRATE FACEBOOKS COMMENTS
+ * INCLUDE JQUERY MODAL
+ * INCLUDE ANIME.JS
+ * CAN CHANGE THEMES FROM MAP
+ * CAN FILTER LOCATIONS
+ * CAN KNOW CALCULATE DISTANCE BETWEEN POINS
+ * 
+ */
+
+// Global variables
 var map;
 var markers = [];
-
-// This global polygon variable is to ensure only ONE polygon is rendered.
 var polygon = null;
-
 var drawingManagerGlobal;
+
 
 // Google Maps Style
 var styles = [
@@ -132,6 +143,10 @@ var styles = [
         ]
     }
 ];
+
+
+
+
 //locations
 var locations = [
     { title: 'Park Ave Penthouse', location: { lat: 40.7713024, lng: -73.9632393 } },
@@ -141,6 +156,25 @@ var locations = [
     { title: 'TriBeCa Artsy Bachelor Pad', location: { lat: 40.7195264, lng: -74.0089934 } },
     { title: 'Chinatown Homey Space', location: { lat: 40.7180628, lng: -73.9961237 } }
 ];
+
+
+var mapManipulationObject = {
+
+    /* 
+    Set the map's markers and extend the
+    boundaries of the map */
+    showListings: function () {
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+            bounds.extend(markers[i].position);
+        }
+        map.fitBounds(bounds);
+    }
+};
+
+
+
 
 function populateInfoWindow(marker, infowindow) {
     // Check to make sure the infowindow is not already opened on this marker.
@@ -189,16 +223,7 @@ function populateInfoWindow(marker, infowindow) {
 }
 
 // This function will loop through the markers array and display them all.
-function showListings() {
-    var bounds = new google.maps.LatLngBounds();
-    // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers.length; i++) {
-        console.log(markers);
-        markers[i].setMap(map);
-        bounds.extend(markers[i].position);
-    }
-    map.fitBounds(bounds);
-}
+
 // This function will loop through the listings and hide them all.
 function hideListings() {
     for (var i = 0; i < markers.length; i++) {
@@ -415,13 +440,13 @@ function initMap() {
         });
     }
 
-   /*  document.getElementById('zoom-to-area').addEventListener('click', function () {
-        zoomToArea();
-    }); */
+    /*  document.getElementById('zoom-to-area').addEventListener('click', function () {
+         zoomToArea();
+     }); */
 
-   /*  document.getElementById('search-within-time').addEventListener('click', function () {
-        searchWithinTime();
-    }); */
+    /*  document.getElementById('search-within-time').addEventListener('click', function () {
+         searchWithinTime();
+     }); */
 
 
     // Add an event listener so that the polygon is captured,  call the
