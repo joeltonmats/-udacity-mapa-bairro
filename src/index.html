@@ -42,6 +42,12 @@
                     </a>
                 </div>
             </li>
+            <ul data-bind="foreach: locationsMapList">
+                <li>
+                    <a href="#" data-bind="text:title, click: $parent.defineLocationOnMap"></a>
+                </li>
+            </ul>
+
             <li>
                 <a href="#!">
                     <i class="material-icons">cloud</i>First Link With Icon</a>
@@ -63,32 +69,12 @@
                 <!-- Trigger to open Modal -->
                 <a href="#" class="trigger">Modal</a>
                 <!-- Modal structure -->
-                <div id="modal">
-                    <!-- Page content -->
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs">
-                                <li class="tab col s3">
-                                    <a href="#test1">Test 1</a>
-                                </li>
-                                <li class="tab col s3">
-                                    <a class="active" href="#test2">Test 2</a>
-                                </li>
-                                <li class="tab col s3 disabled">
-                                    <a href="#test3">Disabled Tab</a>
-                                </li>
-                                <li class="tab col s3">
-                                    <a href="#test4">Test 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="test1" class="col s12">Test 1</div>
-                        <div id="test2" class="col s12">Test 2</div>
-                        <div id="test3" class="col s12">Test 3</div>
-                        <div id="test4" class="col s12">Test 4</div>
-                    </div>
-                </div>
+
+
+
             </li>
+
+
         </ul>
     </header>
 
@@ -222,13 +208,65 @@
         </nav> -->
     </div>
 
+
+    <div id="modal">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3">
+                        <a class="active" href="#test1">Panorama</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test2" data-bind="click:loadPlacePhoto">Fotos</a>
+                    </li>
+                    <li class="tab col s3 disabled">
+                        <a href="#test3">Disabled Tab</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test4" data-bind="click:loadPlaylistOfficial">Playlist oficial</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12">
+                <span class="place-title"></span>
+                <div id="panorama-content" class="animated tada"></div>
+            </div>
+            <div id="test2" class="col s12">
+                <span>Tente deslizar seu dedo para rolar o carrosel.</span>
+                <div class="carousel carousel-slider" style="height: 300px;min-height: 300px;" data-bind="foreach: placePhotosList">
+                    <a class="carousel-item" data-bind="attr:{href:'#'+ id}"><img data-bind="attr:{ src: getUrl({ 'maxWidth': 500, 'maxHeight': 500 }) }" class="animated fadeInDownBig"></a>
+                </div>
+            </div>
+            <div id="test3" class="col s12">
+
+            </div>
+            <div id="test4" class="col s12">
+                <ul class="collapsible" data-collapsible="accordion" data-bind="foreach: tracksList">
+                    <li>
+                        <div class="collapsible-header">
+                            <span data-bind="text: title"></span>
+                            <span data-bind="text: 'Author: ' + artist.name" class="badge"></span>
+                        </div>
+                        <div class="collapsible-body" style="background: linear-gradient(-65deg, #43C6AC, #F8FFAE);">
+                            <audio controls data-bind="attr:{id:id}">
+                                <source data-bind="attr:{src:preview}" type="audio/mpeg"> Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
     <script src="./assets/libs/jquery-3.2.1.min.js"></script>
     <script src="./assets/libs/materialize/js/materialize.min.js"></script>
     <script src="./assets/libs/iziModal/js/iziModal.min.js"></script>
     <script src="./assets/libs/knockout-3.4.2.js"></script>
-    <script src="./assets/js/map-wrapper.js"></script>
+    <script src="./assets/js/map-configuration.js"></script>
+    <!--<script src="./assets/js/map-wrapper.js"></script>-->
     <script src="./assets/js/app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=3&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=3&callback=initMap"
         async defer></script>
 </body>
 

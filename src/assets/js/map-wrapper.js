@@ -16,7 +16,6 @@ var markers = [];
 var polygon = null;
 var drawingManagerGlobal;
 
-
 // Google Maps Style
 var styles = [
     {
@@ -143,9 +142,6 @@ var styles = [
         ]
     }
 ];
-
-
-
 
 //locations
 var locations = [
@@ -386,14 +382,14 @@ function displayMarkersWithinTime(response) {
 
 function initMap() {
 
-    map = new google.maps.Map(document.getElementById('map'), {
+    /*map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 40.7413549, lng: -73.9980244 },
         zoom: 13,
         styles: styles,
         mapTypeControl: false
     });
 
-    var largeInfowindow = new google.maps.InfoWindow();
+    var largeInfowindow = new google.maps.InfoWindow();*/
 
     // Initialize the drawing manager.
     var drawingManager = new google.maps.drawing.DrawingManager({
@@ -409,8 +405,8 @@ function initMap() {
 
     drawingManagerGlobal = drawingManager;
 
-    var defaultIcon = './assets/img/shop1.png';
-    var highlightedIcon = './assets/img/shop2.png';
+  /*  var defaultIcon = './assets/img/shop1.png';
+    var highlightedIcon = './assets/img/shop2.png';*/
 
 
     for (var i = 0; i < locations.length; i++) {
