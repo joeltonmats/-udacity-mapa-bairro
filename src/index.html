@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link rel="stylesheet" href="./assets/libs/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/libs/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/libs/iziModal/css/iziModal.min.css">
@@ -18,6 +19,7 @@
 
     <header>
 
+        <!--SideNav-->
         <div class="container">
             <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only  btn-menu">
                 <i class="medium material-icons">menu</i>
@@ -27,225 +29,98 @@
         <ul id="nav-mobile" class="side-nav fixed pink lighten-1" style="transform: translateX(0%);">
             <li>
                 <div class="user-view">
-                    <div class="background">
-                        <!--  <img src="./assets/img/icon.png" alt="main icon"> -->
-                        <!--  <h3 style="margin: auto 0;padding-left:5px">Beard in ...</h3> -->
+                    <div class="row">
+                        <div class="col s6">
+                            <img src="./assets/img/icon.png" alt="main icon">
+                        </div>
+                        <div class="col s6">
+                            <span class="name" id="main-title">Hey, My Barber in Barão</span>
+                        </div>
                     </div>
-                    <a href="#!user">
-                        <img src="./assets/img/icon.png" alt="main icon">
-                    </a>
-                    <a href="#!name" id="onlyName">
-                        <span class="white-text name">John Doe</span>
-                    </a>
-                    <a href="#!email">
-                        <span class="white-text email">jdandturk@gmail.com</span>
-                    </a>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="themes" data-bind="foreach: themesList">
+                                <div class="theme" data-bind="style:{'background-color': color},attr:{id:id}
+                                ,click: $parent.changeTheme"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
-            <ul data-bind="foreach: locationsMapList">
-                <li>
-                    <a href="#" data-bind="text:title, click: $parent.defineLocationOnMap"></a>
-                </li>
-            </ul>
 
-            <li>
-                <a href="#!">
-                    <i class="material-icons">cloud</i>First Link With Icon</a>
-            </li>
-            <li>
-                <a href="#!">Second Link</a>
-                <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
-            </li>
             <li>
                 <div class="divider"></div>
             </li>
+
             <li>
-                <a class="subheader">Subheader</a>
+                <div class="row" id="search-field">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input id="icon_prefix" type="text" class="validate" data-bind="textInput: filterPlace">
+                        <label for="icon_prefix">Filtrar</label>
+                    </div>
+                </div>
+
             </li>
             <li>
-                <a class="waves-effect" href="#!">Third Link With Waves</a>
+                <div class="collection" data-bind="foreach: filteredLocation">
+                    <a href="#" class="collection-item" data-bind="text:title, click: $parent.defineLocationOnMap"></a>
+                </div>
             </li>
-            <li>
-                <!-- Trigger to open Modal -->
-                <a href="#" class="trigger">Modal</a>
-                <!-- Modal structure -->
-
-
-
-            </li>
-
-
         </ul>
+        <!--END SideNav-->
     </header>
 
     <main>
 
+        <!--Map-->
         <div class="map-wrapper">
             <div id="map"></div>
         </div>
-
-        <!--    <div class="col s12 m4 l3">
-                    <div class="blue-grey darken-1">
-                        <h1>Casa</h1>
-                        <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
-                        <button class="btn btn-xs  btn-danger" data-bind="click:hideMarkers">Hidden</button>
-
-                        <span class="text"> Draw a shape to search within it for homes!</span>
-                        <input id="toggle-drawing" type="button" value="Drawing Tools" data-bind="click:toggleDrawing">
-
-                        <div>
-                            <input id="zoom-to-area-text" type="text" placeholder="Enter your favorite area!">
-                            <input id="zoom-to-area" type="button" value="Zoom">
-                        </div>
-
-                        <div>
-                            <span class="text"> Within </span>
-                            <select id="max-duration">
-                                <option value="10">10 min</option>
-                                <option value="15">15 min</option>
-                                <option value="30">30 min</option>
-                                <option value="60">1 hour</option>
-                            </select>
-                            <select id="mode">
-                                <option value="DRIVING">drive</option>
-                                <option value="WALKING">walk</option>
-                                <option value="BICYCLING">bike</option>
-                                <option value="TRANSIT">transit ride</option>
-                            </select>
-                            <span class="text">of</span>
-                            <input id="search-within-time-text" type="text" placeholder="Ex: Google Office NYC or 75 9th Ave, New York, NY">
-                            <input id="search-within-time" type="button" value="Go">
-                        </div>
-                      
-                    </div>
-
-                </div> -->
+        <!--END Map-->
     </main>
 
-
-    <div>
-
-        <!-- Sidebar Holder -->
-        <!--  <nav id="sidebar" data-bind="css: { active: canCloseSideBar()}">
-            <div class="sidebar-header">
-                <div style="display:inline-flex">
-                    <img src="./assets/img/icon.png" alt="main icon">
-                    <h3 style="margin: auto 0;padding-left:5px">Beard in ...</h3>
-                </div>
-            </div>
-
-            <ul class="list-unstyled components" id="navbarResponsive">
-                <p>Criteria Search</p>
-
-                <button class="btn btn-xs  btn-success" data-bind="click:showMarkers">Show</button>
-                <button class="btn btn-xs  btn-danger" data-bind="click:hideMarkers">Hidden</button>
-
-                <span class="text"> Draw a shape to search within it for homes!</span>
-                <input id="toggle-drawing" type="button" value="Drawing Tools" data-bind="click:toggleDrawing">
-
-                <div>
-                    <input id="zoom-to-area-text" type="text" placeholder="Enter your favorite area!">
-                    <input id="zoom-to-area" type="button" value="Zoom">
-                </div>
-
-                <div>
-                    <span class="text"> Within </span>
-                    <select id="max-duration">
-                        <option value="10">10 min</option>
-                        <option value="15">15 min</option>
-                        <option value="30">30 min</option>
-                        <option value="60">1 hour</option>
-                    </select>
-                    <select id="mode">
-                        <option value="DRIVING">drive</option>
-                        <option value="WALKING">walk</option>
-                        <option value="BICYCLING">bike</option>
-                        <option value="TRANSIT">transit ride</option>
-                    </select>
-                    <span class="text">of</span>
-                    <input id="search-within-time-text" type="text" placeholder="Ex: Google Office NYC or 75 9th Ave, New York, NY">
-                    <input id="search-within-time" type="button" value="Go">
-                </div>
-
-
-
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </nav> -->
-    </div>
-
-
+    <!--MARKERS'S MODAL-->
     <div id="modal">
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3">
-                        <a class="active" href="#test1">Panorama</a>
+                        <a class="active" href="#panorama-view">
+                            <i class="material-icons">panorama</i>
+                        </a>
                     </li>
                     <li class="tab col s3">
-                        <a href="#test2" data-bind="click:loadPlacePhoto">Fotos</a>
-                    </li>
-                    <li class="tab col s3 disabled">
-                        <a href="#test3">Disabled Tab</a>
+                        <a href="#foto-view" data-bind="click:loadPlacePhoto"><i class="material-icons">photo_library</i></a>
                     </li>
                     <li class="tab col s3">
-                        <a href="#test4" data-bind="click:loadPlaylistOfficial">Playlist oficial</a>
+                        <a href="#music-view" data-bind="click:loadPlaylistOfficial"><i class="material-icons">library_music</i></a>
                     </li>
                 </ul>
             </div>
-            <div id="test1" class="col s12">
-                <span class="place-title"></span>
+            <div id="panorama-view" class="col s12">
+                <div>
+                    <h5 class="place-title">Tente deslizar seu dedo para rolar o carrosel.</h5>
+                </div>
                 <div id="panorama-content" class="animated tada"></div>
             </div>
-            <div id="test2" class="col s12">
-                <span>Tente deslizar seu dedo para rolar o carrosel.</span>
+            <div id="foto-view" class="col s12">
+                <div>
+                    <h5>Tente deslizar para os lados para rolar o carrosel.</h5>
+                </div>
                 <div class="carousel carousel-slider" style="height: 300px;min-height: 300px;" data-bind="foreach: placePhotosList">
                     <a class="carousel-item" data-bind="attr:{href:'#'+ id}"><img data-bind="attr:{ src: getUrl({ 'maxWidth': 500, 'maxHeight': 500 }) }" class="animated fadeInDownBig"></a>
                 </div>
             </div>
-            <div id="test3" class="col s12">
-
-            </div>
-            <div id="test4" class="col s12">
+            <div id="music-view" class="col s12">
+                <div>
+                    <h5>Confira preview das músicas favoritas dos clientes.</h5>
+                </div>
                 <ul class="collapsible" data-collapsible="accordion" data-bind="foreach: tracksList">
                     <li>
                         <div class="collapsible-header">
                             <span data-bind="text: title"></span>
-                            <span data-bind="text: 'Author: ' + artist.name" class="badge"></span>
+                            <span data-bind="text: artist.name" class="badge"></span>
                         </div>
                         <div class="collapsible-body" style="background: linear-gradient(-65deg, #43C6AC, #F8FFAE);">
                             <audio controls data-bind="attr:{id:id}">
@@ -258,16 +133,16 @@
             </div>
         </div>
     </div>
+    <!--END MARKERS'S MODAL-->
 
     <script src="./assets/libs/jquery-3.2.1.min.js"></script>
     <script src="./assets/libs/materialize/js/materialize.min.js"></script>
     <script src="./assets/libs/iziModal/js/iziModal.min.js"></script>
     <script src="./assets/libs/knockout-3.4.2.js"></script>
     <script src="./assets/js/map-configuration.js"></script>
-    <!--<script src="./assets/js/map-wrapper.js"></script>-->
     <script src="./assets/js/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBEuPZLA-s0BDIQ0bxwNwkyH7gLZTS5AUc&v=3&callback=initMap"
-        async defer></script>
+        onerror="mapAPIErrorHandler()" async defer></script>
 </body>
 
 </html>

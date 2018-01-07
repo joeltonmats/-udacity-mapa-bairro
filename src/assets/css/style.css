@@ -9,9 +9,30 @@
     height: 300px;
 }
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+/*Search Input*/
+
+#search-field .input-field label {
+    color: #FFF;
+}
+
+#search-field .input-field input[type=text]:focus+label {
+    color: #FFF;
+}
+
+#search-field .input-field input[type=text]:focus {
+    border-bottom: 2px solid #FFF;
+    box-shadow: 0 1px 0 0 #FFF;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#search-field .input-field .prefix.active {
+    color: #FFF;
+}
+
 html {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     line-height: 1.5;
     font-weight: normal;
 }
@@ -57,6 +78,11 @@ summary {
     CONTENT STYLE
 ----------------------------------------------------- */
 
+#main-title {
+    font-size: 20px;
+    color: #FFF;
+}
+
 .map-wrapper {
     padding-bottom: 30%;
     height: 0;
@@ -71,12 +97,35 @@ summary {
     height: 100%;
 }
 
+#music-view>ul {
+    max-height: 300px;
+    overflow: auto;
+}
+
 .btn-menu {
     position: fixed;
     z-index: 99;
     right: 10px;
     color: red;
     top: 50px;
+}
+
+.themes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theme {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: auto 10px;
+    transition: all 0.3s ease;
+    border: 2px #FFF dashed;
+}
+
+.theme:hover {
+    cursor: pointer;
 }
 
 
