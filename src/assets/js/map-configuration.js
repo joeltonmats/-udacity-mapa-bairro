@@ -409,7 +409,7 @@ var themes = [
 
 //map configuration
 var mapConfiguration = {
-    center: { lat: 40.7413549, lng: -73.9980244 },
+    center: { lat: -22.8226801, lng: -47.0850446 },
     zoom: 13,
     styles: themes[1].mapStyle,
     mapTypeControl: false
@@ -424,12 +424,21 @@ var highlightedIcon = './assets/img/shop2.png';*/
 
 // Initial Locations
 var locations = [
-    { title: 'Park Ave Penthouse', location: { lat: 40.7713024, lng: -73.9632393 } },
-    { title: 'Chelsea Loft', location: { lat: 40.7444883, lng: -73.9949465 } },
-    { title: 'Union Square Open Floor Plan', location: { lat: 40.7347062, lng: -73.9895759 } },
-    { title: 'East Village Hip Studio', location: { lat: 40.7281777, lng: -73.984377 } },
-    { title: 'TriBeCa Artsy Bachelor Pad', location: { lat: 40.7195264, lng: -74.0089934 } },
-    { title: 'Chinatown Homey Space', location: { lat: 40.7180628, lng: -73.9961237 } }
+    /*   { title: 'Park Ave Penthouse', location: { lat: 40.7713024, lng: -73.9632393 } },
+      { title: 'Chelsea Loft', location: { lat: 40.7444883, lng: -73.9949465 } },
+      { title: 'Union Square Open Floor Plan', location: { lat: 40.7347062, lng: -73.9895759 } },
+      { title: 'East Village Hip Studio', location: { lat: 40.7281777, lng: -73.984377 } },
+      { title: 'TriBeCa Artsy Bachelor Pad', location: { lat: 40.7195264, lng: -74.0089934 } },
+      { title: 'Chinatown Homey Space', location: { lat: 40.7180628, lng: -73.9961237 } }, */
+    //barao
+    { title: 'Confraria da Barba', placeId: 'ChIJ8fuVMsrGyJQRWJ9V0ow_vuw', location: { lat: -22.824689, lng: -47.0802394 } },
+    { title: 'Barbearia Barão', placeId: 'ChIJ5RBBqcnGyJQR7qmia1hcGYs', location: { lat: -22.8271893, lng: -47.0799615 } },
+    { title: 'Barbearia Oliveira', placeId: 'ChIJ-UbXOcvGyJQRHEFHjfUsT0s', location: { lat: -22.8213147, lng: -47.0812331 } },
+    { title: 'Salão Santo Antônio', placeId: 'ChIJYSJirMnGyJQRKenUv5WV2WQ', location: { lat: -22.8273666, lng: -47.0797911 } },
+    { title: 'Le Baron Barber Shop', placeId: 'ChIJVVVx9TTByJQRQLsrQ-JozH0', location: { lat: -22.8184722, lng: -47.0812862 } },
+    { title: 'Salão Silveira', placeId: 'ChIJXYdpmszGyJQRbOdZnw9Mhqw', location: { lat: -22.8230283, lng: -47.0831768 } },
+    { title: 'Salão Líder', placeId: 'ChIJgaSTZMzGyJQRT5Dm_WYFIR4', location: { lat: -22.8242515, lng: -47.0833458 } },
+
 ];
 
 

@@ -20,6 +20,7 @@ function initializeJqueryPlugins() {
 var Location = function (data) {
     this.title = data.title;
     this.location = data.location;
+    this.placeId = data.placeId;
 };
 
 /* MAIN VIEW MODEL */
@@ -32,6 +33,7 @@ var ViewModel = function () {
     this.filterPlace = ko.observable();
     this.themesList = ko.observableArray(themes);
     this.currentTheme = ko.observable(this.themesList()[1]);
+    this.currentLocation = ko.observable();
 
 
     /*initialize locationsMapList with pre-defined locations*/
@@ -79,7 +81,7 @@ var ViewModel = function () {
     this.loadPlacePhoto = function () {
         var service = new google.maps.places.PlacesService(map);
         service.getDetails({
-            placeId: 'ChIJW7w1-SGuEmsRkMwyFmh9AQU'
+            placeId: self.currentLocation().placeId
         }, function (place, status) {
             if (status == 'OK') {
                 var count = 0;
@@ -139,6 +141,7 @@ var ViewModel = function () {
     this.defineLocationOnMap = function (locationClicked) {
         $('ul.tabs').tabs('select_tab', 'panorama-view');
         toggleBounce(locationClicked.marker);
+        self.currentLocation(locationClicked);
 
         /*With timeout the user will see the bounce*/
         setTimeout(function () {
