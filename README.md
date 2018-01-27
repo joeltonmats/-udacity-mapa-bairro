@@ -1,6 +1,6 @@
 # -udacity-mapa-bairro
 
-This project is made for Udacity feature2-project-architecture's map.
+This project is a neighborhood's map project made for Udacity course.
 
 ## How to run ?
 
