@@ -431,13 +431,13 @@ var locations = [
       { title: 'TriBeCa Artsy Bachelor Pad', location: { lat: 40.7195264, lng: -74.0089934 } },
       { title: 'Chinatown Homey Space', location: { lat: 40.7180628, lng: -73.9961237 } }, */
     //barao
-    { title: 'Confraria da Barba', placeId: 'ChIJ8fuVMsrGyJQRWJ9V0ow_vuw', location: { lat: -22.824689, lng: -47.0802394 } },
-    { title: 'Barbearia Barão', placeId: 'ChIJ5RBBqcnGyJQR7qmia1hcGYs', location: { lat: -22.8271893, lng: -47.0799615 } },
-    { title: 'Barbearia Oliveira', placeId: 'ChIJ-UbXOcvGyJQRHEFHjfUsT0s', location: { lat: -22.8213147, lng: -47.0812331 } },
-    { title: 'Salão Santo Antônio', placeId: 'ChIJYSJirMnGyJQRKenUv5WV2WQ', location: { lat: -22.8273666, lng: -47.0797911 } },
-    { title: 'Le Baron Barber Shop', placeId: 'ChIJVVVx9TTByJQRQLsrQ-JozH0', location: { lat: -22.8184722, lng: -47.0812862 } },
-    { title: 'Salão Silveira', placeId: 'ChIJXYdpmszGyJQRbOdZnw9Mhqw', location: { lat: -22.8230283, lng: -47.0831768 } },
-    { title: 'Salão Líder', placeId: 'ChIJgaSTZMzGyJQRT5Dm_WYFIR4', location: { lat: -22.8242515, lng: -47.0833458 } },
+    { title: 'Confraria da Barba', placeId: 'ChIJ8fuVMsrGyJQRWJ9V0ow_vuw', playListId:'2174444282', location: { lat: -22.824689, lng: -47.0802394 } },
+    { title: 'Barbearia Barão', placeId: 'ChIJ5RBBqcnGyJQR7qmia1hcGYs', playListId:'1202660313',  location: { lat: -22.8271893, lng: -47.0799615 } },
+    { title: 'Barbearia Oliveira', placeId: 'ChIJ-UbXOcvGyJQRHEFHjfUsT0s', playListId:'1963962142', location: { lat: -22.8213147, lng: -47.0812331 } },
+    { title: 'Salão Santo Antônio', placeId: 'ChIJYSJirMnGyJQRKenUv5WV2WQ', playListId:'2098157264', location: { lat: -22.8273666, lng: -47.0797911 } },
+    { title: 'Le Baron Barber Shop', placeId: 'ChIJVVVx9TTByJQRQLsrQ-JozH0', playListId:'1250202481', location: { lat: -22.8184722, lng: -47.0812862 } },
+    { title: 'Salão Silveira', placeId: 'ChIJXYdpmszGyJQRbOdZnw9Mhqw', playListId:'715215865', location: { lat: -22.8230283, lng: -47.0831768 } },
+    { title: 'Salão Líder', placeId: 'ChIJgaSTZMzGyJQRT5Dm_WYFIR4',playListId:'1274663331', location: { lat: -22.8242515, lng: -47.0833458 } },
 
 ];
 

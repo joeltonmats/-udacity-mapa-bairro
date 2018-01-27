@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./assets/libs/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/libs/iziModal/css/iziModal.min.css">
     <link rel="stylesheet" href="./assets/libs/animate.css">
+    <link rel="stylesheet" href="./assets/libs/slick-1.8.0/slick.css">
+    <link rel="stylesheet" href="./assets/libs/slick-1.8.0/slick-theme.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Hey, My Barber in Barão</title>
 </head>
@@ -82,6 +84,9 @@
 
     <!--MARKERS'S MODAL-->
     <div id="modal">
+        <div class="iziModal-header" style="background: rgb(136, 160, 185); padding-right: 78px;">
+            <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
+        </div>
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
@@ -108,8 +113,16 @@
                 <div>
                     <h5>Tente deslizar para os lados para rolar o carrosel.</h5>
                 </div>
-                <div class="carousel carousel-slider" style="height: 300px;min-height: 300px;" data-bind="foreach: placePhotosList">
-                    <a class="carousel-item" data-bind="attr:{href:'#'+ id}"><img data-bind="attr:{ src: getUrl({ 'maxWidth': 500, 'maxHeight': 500 }) }" class="animated fadeInDownBig"></a>
+                <div class="no-content" data-bind="if:placePhotosList().length == 0">
+                    <div class="card-panel teal  lime accent-2">
+                        <h6>Não foi possível encontrar imagens para o local</h6>
+                    </div>
+                </div>
+                <!--<div class="carousel carousel-slider" style="height: 300px;min-height: 300px;" data-bind="foreach: placePhotosList">
+                    <a class="carousel-item" data-bind="attr:{href:'#'+ id+'!'}"><img data-bind="attr:{ src: getUrl({ 'maxWidth': 500, 'maxHeight': 500 }) }" class="animated fadeInDownBig"></a>
+                </div>-->
+                <div class="carousel-wrapper text-center" data-bind="foreach: placePhotosList">
+                    <img data-bind="attr:{ src: getUrl({ 'maxWidth': 500, 'maxHeight': 500 }) }" class="animated fadeInDownBig" style="min-height: 200px;padding:10px 30px;">
                 </div>
             </div>
             <div id="music-view" class="col s12">
@@ -138,6 +151,7 @@
     <script src="./assets/libs/jquery-3.2.1.min.js"></script>
     <script src="./assets/libs/materialize/js/materialize.min.js"></script>
     <script src="./assets/libs/iziModal/js/iziModal.min.js"></script>
+    <script src="./assets/libs/slick-1.8.0/slick.js"></script>
     <script src="./assets/libs/knockout-3.4.2.js"></script>
     <script src="./assets/js/map-configuration.js"></script>
     <script src="./assets/js/app.js"></script>

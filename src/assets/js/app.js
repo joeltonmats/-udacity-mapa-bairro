@@ -21,6 +21,7 @@ var Location = function (data) {
     this.title = data.title;
     this.location = data.location;
     this.placeId = data.placeId;
+    this.playList = data.playListId;
 };
 
 /* MAIN VIEW MODEL */
@@ -85,30 +86,42 @@ var ViewModel = function () {
         }, function (place, status) {
             if (status == 'OK') {
                 var count = 0;
-                /* FIX 1 - How initialize property a array ?  
-                * each request the array is increase. I tried
-                self.placePhotosList.removeAll(),
-                self.placePhotosList([]). Both doesnt work
-                */
-                place.photos.forEach(function (photo) {
-                    photo.id = count;
-                    self.placePhotosList.push(photo);
-                    count++;
-                });
 
-                $('.carousel').carousel({ fullWidth: true });
+                self.placePhotosList.removeAll();
+                /*self.placePhotosList([]);*/
+
+                console.log('self.placePhotosList() begin', self.placePhotosList());
+                if (place.photos) {
+                    place.photos.forEach(function (photo) {
+                        photo.id = count;
+                        self.placePhotosList.push(photo);
+                        count++;
+                    });
+
+                    // Fix 1 -  Both plugins emit bug when the app executes this block  after first execution
+                    /*$('.carousel').carousel({ fullWidth: true, dist: 0 });*/
+                    $('.carousel-wrapper').slick();
+
+                }
+
+                console.log('self.placePhotosList() end', self.placePhotosList());
+
+            } else if (status == 'ERROR' || status == 'INVALID_REQUEST') {
+                Materialize.toast('Não foi possível carregar as imagens', 4000, 'toast-error')
             }
         });
     };
 
     /*Load Official Playlist from Barber*/
     this.loadPlaylistOfficial = function () {
-        console.log('entrou');
         $.ajax({
-            url: 'https://api.deezer.com/playlist/908622995/?output=jsonp',
+            url: 'https://api.deezer.com/playlist/' + self.currentLocation().playList + '/?output=jsonp',
             dataType: 'jsonp'
         }).done(function (response) {
             self.tracksList(response.tracks.data);
+        }).fail(function (err) {
+            Materialize.toast('Não foi possível carregar playlist', 4000, 'toast-error');
+            console.log(err);
         });
     };
 

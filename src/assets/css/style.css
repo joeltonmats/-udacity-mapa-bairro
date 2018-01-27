@@ -161,6 +161,11 @@ summary {
     width: 24%;
 }
 
+.toast-error {
+    background: red;
+    color: white
+}
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES
