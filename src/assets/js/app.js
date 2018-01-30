@@ -13,6 +13,9 @@ function initializeJqueryPlugins() {
     $('#nav-mobile #main-title').addClass('animated flipInX');
 };
 
+function createSlick() {
+    $('.carousel-wrapper').not('.slick-initialized').slick();
+}
 
 //------- Knockout.js Architecture ---------
 
@@ -98,13 +101,14 @@ var ViewModel = function () {
                         count++;
                     });
 
-                    // Fix 1 -  Both plugins emit bug when the app executes this block  after first execution
-                    /*$('.carousel').carousel({ fullWidth: true, dist: 0 });*/
-                    $('.carousel-wrapper').slick();
+                    createSlick();
+                    //$('.carousel-wrapper').slick("unslick");
+                    /*   $('.carousel-wrapper').slick("destroy"); */
 
                 }
 
-                console.log('self.placePhotosList() end', self.placePhotosList());
+
+                /* console.log('self.placePhotosList() end', self.placePhotosList()); */
 
             } else if (status == 'ERROR' || status == 'INVALID_REQUEST') {
                 Materialize.toast('Não foi possível carregar as imagens', 4000, 'toast-error')
@@ -196,6 +200,5 @@ $('div').click(function () {
     var sounds = document.getElementsByTagName('audio');
     for (i = 0; i < sounds.length; i++) sounds[i].pause();
 });
-
 
 initializeJqueryPlugins();
