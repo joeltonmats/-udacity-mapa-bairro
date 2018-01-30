@@ -136,6 +136,10 @@ var ViewModel = function () {
         });
     };
 
+    /**
+     * This function is responsible
+     * to theme manipulation
+     */
     this.changeTheme = function (themeSelected) {
         $('#nav-mobile').removeClass(self.currentTheme().colorClass).addClass(themeSelected.colorClass);
 
@@ -181,11 +185,10 @@ function initMap() {
         });
 };
 
-//error handling function that gets called when google maps api does not return successfully
+/* error handling function that gets called when google maps api does not return successfully */
 function mapAPIErrorHandler() {
-    $('#map').html('<h2>Failed to retrieve some maps resources, Please, try again later.</h2>');
-}
-
+    Materialize.toast('Falha ao trazer alguns recursos do mapa. Por favor, tente novamente mais tarde.', 4000, 'toast-error');
+};
 
 /*Stop all audio playing*/
 $('div').click(function () {
