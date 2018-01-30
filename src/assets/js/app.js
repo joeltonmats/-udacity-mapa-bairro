@@ -15,6 +15,20 @@ function initializeJqueryPlugins() {
 
 function createSlick() {
     $('.carousel-wrapper').not('.slick-initialized').slick();
+};
+
+/*Bounce when location is clicked*/
+function toggleBounce(marker, locationList) {
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        for (var i = 0; i < locationList.length; i++) {
+            var mark = locationList[i].marker;
+            if (mark.getAnimation() !== null)
+                mark.setAnimation(null);
+        }
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
 }
 
 //------- Knockout.js Architecture ---------
@@ -91,9 +105,7 @@ var ViewModel = function () {
                 var count = 0;
 
                 self.placePhotosList.removeAll();
-                /*self.placePhotosList([]);*/
 
-                console.log('self.placePhotosList() begin', self.placePhotosList());
                 if (place.photos) {
                     place.photos.forEach(function (photo) {
                         photo.id = count;
@@ -106,10 +118,6 @@ var ViewModel = function () {
                     /*   $('.carousel-wrapper').slick("destroy"); */
 
                 }
-
-
-                /* console.log('self.placePhotosList() end', self.placePhotosList()); */
-
             } else if (status == 'ERROR' || status == 'INVALID_REQUEST') {
                 Materialize.toast('Não foi possível carregar as imagens', 4000, 'toast-error')
             }
@@ -125,7 +133,6 @@ var ViewModel = function () {
             self.tracksList(response.tracks.data);
         }).fail(function (err) {
             Materialize.toast('Não foi possível carregar playlist', 4000, 'toast-error');
-            console.log(err);
         });
     };
 
@@ -139,25 +146,10 @@ var ViewModel = function () {
         self.currentTheme(themeSelected);
     }
 
-
-    /*Bounce when location is clicked*/
-    function toggleBounce(marker) {
-        if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-        } else {
-            for (var i = 0; i < self.locationsMapList().length; i++) {
-                var mark = self.locationsMapList()[i].marker;
-                if (mark.getAnimation() !== null)
-                    mark.setAnimation(null);
-            }
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-    }
-
     /* It calls when a location is clicked on sideNav list.*/
     this.defineLocationOnMap = function (locationClicked) {
         $('ul.tabs').tabs('select_tab', 'panorama-view');
-        toggleBounce(locationClicked.marker);
+        toggleBounce(locationClicked.marker, self.locationsMapList());
         self.currentLocation(locationClicked);
 
         /*With timeout the user will see the bounce*/
