@@ -11,11 +11,11 @@ function initializeJqueryPlugins() {
 
     /*Animating Title*/
     $('#nav-mobile #main-title').addClass('animated flipInX');
-};
+}
 
 function createSlick() {
     $('.carousel-wrapper').not('.slick-initialized').slick();
-};
+}
 
 /*Bounce when location is clicked*/
 function toggleBounce(marker, locationList) {
@@ -119,7 +119,7 @@ var ViewModel = function () {
 
                 }
             } else if (status == 'ERROR' || status == 'INVALID_REQUEST') {
-                Materialize.toast('Não foi possível carregar as imagens', 4000, 'toast-error')
+                Materialize.toast('Não foi possível carregar as imagens', 4000, 'toast-error');
             }
         });
     };
@@ -148,7 +148,7 @@ var ViewModel = function () {
         map.setMapTypeId('styled_map');
 
         self.currentTheme(themeSelected);
-    }
+    };
 
     /* It calls when a location is clicked on sideNav list.*/
     this.defineLocationOnMap = function (locationClicked) {
@@ -168,8 +168,7 @@ var ViewModel = function () {
     $(document).on('closing', '#modal', function (e) {
         self.currentLocation().marker.setAnimation(null);
     });
-
-}
+};
 
 
 /*Initialize the Map*/
@@ -183,12 +182,12 @@ function initMap() {
         function () {
             mapModule.showListings();
         });
-};
+}
 
 /* error handling function that gets called when google maps api does not return successfully */
 function mapAPIErrorHandler() {
     Materialize.toast('Falha ao trazer alguns recursos do mapa. Por favor, tente novamente mais tarde.', 4000, 'toast-error');
-};
+}
 
 /*Stop all audio playing*/
 $('div').click(function () {

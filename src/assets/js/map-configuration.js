@@ -404,7 +404,7 @@ var themes = [
             }
         ]
     },
-]
+];
 
 
 //map configuration
@@ -419,18 +419,8 @@ var mapConfiguration = {
 var defaultIcon;
 var highlightedIcon;
 
-/*var defaultIcon = './assets/img/shop1.png';
-var highlightedIcon = './assets/img/shop2.png';*/
-
 // Initial Locations
 var locations = [
-    /*   { title: 'Park Ave Penthouse', location: { lat: 40.7713024, lng: -73.9632393 } },
-      { title: 'Chelsea Loft', location: { lat: 40.7444883, lng: -73.9949465 } },
-      { title: 'Union Square Open Floor Plan', location: { lat: 40.7347062, lng: -73.9895759 } },
-      { title: 'East Village Hip Studio', location: { lat: 40.7281777, lng: -73.984377 } },
-      { title: 'TriBeCa Artsy Bachelor Pad', location: { lat: 40.7195264, lng: -74.0089934 } },
-      { title: 'Chinatown Homey Space', location: { lat: 40.7180628, lng: -73.9961237 } }, */
-    //barao
     { title: 'Confraria da Barba', placeId: 'ChIJ8fuVMsrGyJQRWJ9V0ow_vuw', playListId: '2174444282', location: { lat: -22.824689, lng: -47.0802394 } },
     { title: 'Barbearia Barão', placeId: 'ChIJ5RBBqcnGyJQR7qmia1hcGYs', playListId: '1202660313', location: { lat: -22.8271893, lng: -47.0799615 } },
     { title: 'Barbearia Oliveira', placeId: 'ChIJ-UbXOcvGyJQRHEFHjfUsT0s', playListId: '1963962142', location: { lat: -22.8213147, lng: -47.0812331 } },
@@ -441,8 +431,6 @@ var locations = [
 
 ];
 
-
-
 /**
  * Build a modal for each time
  */
@@ -450,7 +438,7 @@ function setModal() {
     if ($('#modal').iziModal('getState') == 'closed') {
         $('#modal').iziModal('open');
     }
-};
+}
 
 function populateInfoModal(marker) {
 
@@ -483,12 +471,12 @@ function populateInfoModal(marker) {
         } else {
             $('.place-title').text('No Street View Found');
         }
-    };
+    }
 
     // Use streetview service to get the closest streetview image within
     // 50 meters of the markers position
     streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-};
+}
 
 
 var mapModule = {
@@ -498,14 +486,13 @@ var mapModule = {
         highlightedIcon = mapModule.makeMarkerIcon('FFF');
 
         for (var i = 0; i < locationObject.length; i++) {
-
             var marker = new google.maps.Marker({
                 position: locationObject[i].location,
                 title: locationObject[i].title,
                 animation: google.maps.Animation.DROP,
                 icon: defaultIcon,
                 id: i
-            })
+            });
 
             markers.push(marker);
 
@@ -526,8 +513,8 @@ var mapModule = {
     },
 
     /* 
-       Set the map's markers and extend the
-       boundaries of the map */
+        Set the map's markers and extend the
+        boundaries of the map */
     showListings: function () {
         var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < markers.length; i++) {
@@ -547,7 +534,6 @@ var mapModule = {
             new google.maps.Size(21, 34));
         return markerImage;
     }
-}
-
+};
 
 
